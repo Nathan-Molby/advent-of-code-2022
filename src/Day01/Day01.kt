@@ -1,7 +1,7 @@
 package Day01
 
 import readInput
-
+ 
 fun main() {
     class Elf(var calories: MutableList<Int>) {
         fun addCalorie(calorie: Int) {
