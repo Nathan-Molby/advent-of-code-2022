@@ -1,6 +1,5 @@
 package Day07
 
-import Day06.firstUniqueIndex
 import readInput
 
 class Node(val name: String, val parentNode: Node?, val size: Int?, val isDirectory: Boolean) {
