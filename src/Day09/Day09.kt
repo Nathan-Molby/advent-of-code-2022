@@ -91,7 +91,6 @@ fun main() {
 
 
 
-    // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day09","Day09_test")
 //    println(part1(testInput))
 //    check(part1(testInput) == 13)
