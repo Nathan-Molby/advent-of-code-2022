@@ -22,7 +22,6 @@ class Node(val elevation: Int): Comparable<Node> {
 class Maze() {
     var nodesPriorityQueue = PriorityQueue<Node>()
     var allNodes = mutableListOf<Node>()
-    var startNodes = mutableListOf<Node>()
     var targetNode: Node? = null
 
     var smallestStartNodeDist = Int.MAX_VALUE
@@ -37,7 +36,7 @@ class Maze() {
             for (nodeChar in row) {
                 if (nodeChar == 'S') {
                     val node = Node('a'.code)
-                    startNodes.add(node)
+                    node.distance = 0
                     matrixRow.add(node)
                     nodesPriorityQueue.add(node)
                 } else if (nodeChar == 'E') {
@@ -48,7 +47,7 @@ class Maze() {
                 } else {
                     val node = Node(nodeChar.code)
                     if(multipleStarts && nodeChar == 'a') {
-                        startNodes.add(node)
+                        node.distance = 0
                     }
                     matrixRow.add(node)
                     nodesPriorityQueue.add(node)
@@ -88,21 +87,6 @@ class Maze() {
         }
     }
 
-    fun runDjikstrasForEach() {
-        for(startNode in startNodes) {
-            nodesPriorityQueue = PriorityQueue()
-            for (node in allNodes) {
-                node.reset()
-                nodesPriorityQueue.add(node)
-            }
-
-            startNode.distance = 0
-            runDjikstras()
-
-            smallestStartNodeDist = min(smallestStartNodeDist, targetNode!!.distance)
-        }
-    }
-
     fun runDjikstras() {
         while (nodesPriorityQueue.isNotEmpty()) {
             val node = nodesPriorityQueue.remove()
@@ -120,7 +104,7 @@ class Maze() {
     }
 
     fun getShortsDist(): Int {
-        return smallestStartNodeDist
+        return targetNode!!.distance
     }
 }
 
@@ -128,14 +112,14 @@ fun main() {
     fun part1(input: List<String>): Int {
         val maze = Maze()
         maze.processInput(input, false)
-        maze.runDjikstrasForEach()
+        maze.runDjikstras()
         return maze.getShortsDist()
     }
 
     fun part2(input: List<String>): Int {
         val maze = Maze()
         maze.processInput(input, true)
-        maze.runDjikstrasForEach()
+        maze.runDjikstras()
         return maze.getShortsDist()
     }
 
