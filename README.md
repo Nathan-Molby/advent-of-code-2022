@@ -2,7 +2,7 @@
 ## Results
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  2022 - 36 ⭐
+  2022 - 40 ⭐
 </h1>
 <a href="src/Day01/Day01.kt">
   <img src="Media/2022/01.png" width="161px">
@@ -55,7 +55,13 @@
 <a href="src/Day17/Day17.kt">
   <img src="Media/2022/17.png" width="161px">
 </a>
-<a href="src/Day18/Day18.kt">
+<a href="src/Day18/day19.kt">
   <img src="Media/2022/18.png" width="161px">
+</a>
+<a href="src/Day19/Day19.kt">
+  <img src="Media/2022/19.png" width="161px">
+</a>
+<a href="src/Day20/Day20.kt">
+  <img src="Media/2022/20.png" width="161px">
 </a>
 <!-- AOC TILES END -->
